@@ -98,6 +98,7 @@
       switch (selectedDifficulty) {
         case 'random':
           randomWord = randWords[Math.floor(Math.random() * randWords.length)];
+          console.log("Selected Random: ", randomWord);
           break;
         case 'easy':
           randomWord = easyWords[Math.floor(Math.random() * easyWords.length)];
