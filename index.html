@@ -12,7 +12,7 @@
     }
     .btn {
       margin: 10px;
-      width: 200px; /* Set button width */
+      width: 225px; /* Set button width */
     }
   </style>
 </head>
@@ -31,6 +31,11 @@
     </div>
     <div class="col">
       <button id="insaneButton" class="btn btn-primary">Insane</button>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col">
+      <button id="generateButton" class="btn btn-success">Generate</button>
     </div>
   </div>
 </div>
@@ -60,14 +65,20 @@
     // console.log("Selected Difficulty:", selectedDifficulty);
   }
 
+  // Function to handle Generate button click
+  document.getElementById('generateButton').addEventListener('click', () => {
+    if (selectedDifficulty) {
+      alert("Selected = " + selectedDifficulty);
+    } else {
+      alert("Please select a difficulty");
+    }
+  });
+
   // Add event listeners to buttons
   document.getElementById('easyButton').addEventListener('click', () => handleButtonClick('easy'));
   document.getElementById('mediumButton').addEventListener('click', () => handleButtonClick('medium'));
   document.getElementById('hardButton').addEventListener('click', () => handleButtonClick('hard'));
   document.getElementById('insaneButton').addEventListener('click', () => handleButtonClick('insane'));
-
-  // Set default difficulty to Medium and color the button
-  handleButtonClick('medium');
 </script>
 
 </body>
