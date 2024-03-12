@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Select Difficulty</title>
+  <title>Infinite Craft Random Word Generator</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
@@ -44,6 +44,12 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+  // Words for each difficulty level
+  const easyWords = ['Aloha', 'Amazon', 'Anniversary', 'Ash', 'Angel', 'Ammonite'];
+  const mediumWords = ['Air Conditioner', 'Aircraft Carrier', 'Alpha', 'Animal', 'Animal Kingdom', 'Bacon', 'Bat', 'Ariel', 'Antarctica'];
+  const hardWords = ['Airship', 'Alchemist', 'Alfred', 'Alien', 'Allergy', 'Amber', 'Android'];
+  const insaneWords = ['Arnold Schwarzenegger', 'Arsonist', 'Art', 'Baconator', 'Baconasaurus', 'Baconasaurus Rex', 'Baconcorn', 'Barackasaurus'];
+
   // Initialize selected difficulty
   let selectedDifficulty = "";
 
@@ -68,7 +74,24 @@
   // Function to handle Generate button click
   document.getElementById('generateButton').addEventListener('click', () => {
     if (selectedDifficulty) {
-      alert("Selected = " + selectedDifficulty);
+      let randomWord = "";
+      switch (selectedDifficulty) {
+        case 'easy':
+          randomWord = easyWords[Math.floor(Math.random() * easyWords.length)];
+          break;
+        case 'medium':
+          randomWord = mediumWords[Math.floor(Math.random() * mediumWords.length)];
+          break;
+        case 'hard':
+          randomWord = hardWords[Math.floor(Math.random() * hardWords.length)];
+          break;
+        case 'insane':
+          randomWord = insaneWords[Math.floor(Math.random() * insaneWords.length)];
+          break;
+        default:
+          break;
+      }
+      alert("Selected = " + randomWord);
     } else {
       alert("Please select a difficulty");
     }
