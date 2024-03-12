@@ -63,63 +63,74 @@
 
 <script>
   // Words for each difficulty level
-  const easyWords = ['Aloha', 'Amazon', 'Anniversary', 'Ash', 'Angel', 'Ammonite'];
-  const mediumWords = ['Air Conditioner', 'Aircraft Carrier', 'Alpha', 'Animal', 'Animal Kingdom', 'Bacon', 'Bat', 'Ariel', 'Antarctica'];
-  const hardWords = ['Airship', 'Alchemist', 'Alfred', 'Alien', 'Allergy', 'Amber', 'Android'];
-  const insaneWords = ['Arnold Schwarzenegger', 'Arsonist', 'Art', 'Baconator', 'Baconasaurus', 'Baconasaurus Rex', 'Baconcorn', 'Barackasaurus'];
+  const easyWords = ['Aloha', 'Amazon', 'Anniversary', 'Ash', 'Angel', 'Ammonite', 'Boulder', 'Stone', 'Island', 'Continent', 'Plant', 'Coral', 'Tasmania', 'Boat'];
+  const mediumWords = ['Air Conditioner', 'Aircraft Carrier', 'Alpha', 'Animal', 'Animal Kingdom', 'Bacon', 'Bat', 'Ariel', 'Antarctica', 'Australia', 'Devil', 'Avalanche', 'Druid'];
+  const hardWords = ['Airship', 'Alchemist', 'Alfred', 'Alien', 'Allergy', 'Amber', 'Android', 'Tasmanian Devil', 'Captain Hook', 'Ariel', 'Gold', 'Prostitute', 'Trillionaire', 'Steam Ark', 'Hot Monkey', 'Stonehenge', 'Politician', 'Golden Monkey Wrench'];
+  const insaneWords = ['Arnold Schwarzenegger', 'Arsonist', 'Art', 'Baconator', 'Baconasaurus', 'Baconasaurus Rex', 'Baconcorn', 'Barackasaurus', 'Sasquatch', 'Golden Toolbox', 'Pimpodus', 'Sun Wukong', 'Pimpfish', 'Steam T-rump', 'Abominable Snowman', 'Pimpicane'];
+  
+  // All words array
+  const words = [
+    "Air Conditioner", "Aircraft Carrier", "Airship", "Alchemist", "Alfred", "Alien", "Allergy", "Aloha", "Alpha", "Amazon", "Amber", "America", "Ammonite", "Android", "Angel", "Animal", "Animal Kingdom", "Anime", "Anniversary", "Antarctica", "Antique", "Ape", "Apple", "Apple Juice", "Apple Pie", "Argentina", "Ariel", "Arnold Schwarzenegger", "Arsonist", "Art", "Artificial Intelligence", "Ash", "Asia", "Atlantis", "Atlas", "Australia", "Avalanche", "Baby", "Baby Dinosaur", "Baby Lovebird", "Baby Polar Bear", "Bacon", "Bacon Zeus", "Baconasaurus", "Baconasaurus Rex", "Baconator", "Baconcorn", "Balloon", "Bankrupt", "Barackasaurus", "Barbecue", "Bat", "Batman", "Battle", "Battleship", "Bear", "Beauty and the Beast", "Berserker", "Best Friend", "Big Bang", "Bigfoot", "Bionic Bud", "Bird", "Birthday Cake", "Black Hole", "Blackbear", "Blizzard", "Boat", "Bog", "Bomb", "Bonsai", "Book", "Bookshelf", "Bottle", "Boulder", "Bouquet", "Bowser", "Box", "Brazil", "Bread", "Breadstick", "Breakfast", "Brick", "Bride", "Bro", "Broken Heart", "Brownies", "Bruce Wayne", "Buddha", "Building", "Bullet", "Burn", "Burnt Toast", "Bush", "Businessman", "Butter", "C-3PO", "Cactus", "Cake", "Calendar", "Cambodia", "Camelot", "Cannon", "Cannonball", "Cape Verde", "Captain", "Captain Hook", "Car", "Carnivorous Plant", "Castle", "Castle in the Sky", "Catholic", "Cauldron", "Cave", "CD", "Cemetary", "Centaur", "Central Park", "Ceramic", "Change", "Cheese", "Cheetah", "Chef", "Chest", "Chicken", "Chicken Parm Lemonade", "Chicken Parmesan", "Child", "Chimera", "Chimpanzee", "China", "Chinese", "Chocolate", "Christmas", "Christmas Tree", "Chuck Norris", "Church", "Cider", "Cinder", "City", "Clay", "Clean", "Cleopatra", "Clock", "Cloud", "Cocoa", "Coin", "Cold", "Cologne", "Computer", "Confucius", "Construction", "Continent", "Cooked", "Cookie", "Cookie Monster", "Cookie Shake", "Coral", "Cosmos", "Cough", "Cough Syrup", "Country", "Cowboy", "Crane", "Crash", "Crocodile", "Crocopig", "Crop", "Crown", "Cruise", "Crusade", "Crusader", "Crying", "Crypt", "Cryptozoology", "Cubs", "Cuddly", "Cupid", "Curse", "Cyborg", "Cyclone", "Dance", "Dandelion", "Dandelion Patch", "Darth Vader", "Darwin", "Death", "Death Note", "Death Star", "Defenestration", "Delft", "Demon", "Dengue", "Denmark", "Desert", "Destruction", "Devil", "Diamon", "Diddy Kong", "Dinosaur", "Disney", "Divorce", "DJ", "Doctor", "Doggie", "Dominican Republic", "Donkey", "Donkey Kong", "Donkey Kong Country", "Double Katana", "Dowry", "Dracula", "Dragon", "Dragon Ball", "Dragon Ball Z", "Dragon Ball Z Kai", "Dragonborn", "Dragonfly", "Drawing", "Drone", "Dumbledore", "Dust", "Dust Bowl", "Dust Storm", "Dust Trap", "Dustpan", "Dutch", "Earthquake", "Easter", "Eclipse", "Eden", "Egg", "Egypt", "Eiffel Tower", "Elder", "Electric Guitar", "Electricity", "Elon Musk", "Emo", "Empire State Building", "Energy", "Engine", "Eruption", "Estonia", "Eternity", "Europe", "Eurovision", "Eve", "Everest", "Evolution", "Excalibur", "Explosion", "Facebook", "Fairy", "Family", "Farm", "Fertility", "Field", "Fight", "Figure Skating", "Finland", "Fire Bird", "Fire Flower", "Fire King", "Fire Queen", "Fire Tornado", "Fire Trap", "Fire Truck", "Fireball", "Firefighter", "Fireman", "Fireplace", "Fish", "Fishbowl", "Fjord", "Flock", "Flower", "Flying", "Flying Bread", "Flying Car", "Flying Horse", "Flypaper", "Fog", "Food", "Fool", "Football", "Forest", "Fortress", "Fortune", "Fossil", "France", "Frankenstein", "Freedom", "Fridge", "Friend", "Frog", "Frog Prince", "Frogger", "Frost Dragon", "Fruit", "Fruit Tree", "Fuel", "Future", "Galaxy", "Galleon", "Garden", "Gay", "Geisha", "Genetically Modified Food", "Genie", "Germany", "Ghost", "Gift", "Gingerbread", "Girl", "Girlfriend", "Glass", "Glue", "God", "Godzilla", "Gohan", "Goku", "Gold", "Gold Bar", "Gold Ingot", "Golem", "Goth", "Gotham", "Graceland", "Grave", "Graveyard", "Greatsword", "Grim Reaper", "Grudge", "Grumpy", "Gun", "Hacker", "Hammer", "Hammerhead", "Hamster", "Hangover", "Hangwish", "Happily Ever After", "Harp", "Harry Potter", "Hatsune Miku", "Hawaii", "Hawaii Five-O", "Heart", "Heartbreak", "Hedwig", "Hercules", "Hex", "Hexagon", "Hibernation", "Hippocampus", "Hipster", "History", "Hive", "Hole", "Holy Water", "Homer", "Honey", "Honeycomb", "Hot Spring", "Hourglass", "House", "Human", "Hummingbird", "Hydra", "Ice", "Ice Castle", "Ice Cream", "Ice Cream Cone", "Ice Dragon", "Iceberg", "Iceland", "Igloo", "Incense", "IPod", "Iran", "Ireland", "Iron", "Island", "Italy", "J-pop", "Jack Sparrow", "Jail", "Jail Break", "Jailbird", "Japan", "Jedi", "Jedi Pig", "Jelly", "Jellyfish", "Jesus", "Jet", "Jewel", "Jungle", "Kaleidoscope", "Kamehameha", "Kanye West", "Karma", "Kelp", "Kermit", "Kindle", "King", "King Arthur", "King Kong", "Kite", "KitKat", "Knight", "Knight Rider", "Knowledge", "Kraken", "Kung Fu", "Lake", "Landslide", "Laser", "Lava", "Lava Lamp", "Lawyer", "Leaf", "League of Legends", "Lebanon", "Lego", "Lemon", "Lemonade", "Lens", "Leopard", "Leopard Bear", "Leprechaun", "Lesbian", "Letter", "Library", "Life", "Lighthouse", "Lightning", "Lightsaber", "Like", "Lily", "Lion", "Lioness", "Loch Ness", "Loch Ness Monster", "Longsword", "Lotus", "Love", "Lovebird", "Luffy", "Luigi", "Lunar", "Lunch Lady", "Madden", "Mafia", "Magic", "Mailbox", "Man", "Manga", "Mangrove", "Mario", "Mario Bros", "Mario Kart", "Mario Kart 8 Deluxe", "Marriage", "Mars", "Medusa", "Meme", "Mermaid", "Messi", "Metal", "Meteor", "Metronome", "Mexico", "Micronesia", "Microscope", "Milk", "Milky Way", "Mine", "Minotaur", "Mirage", "Mirror", "Miss Piggy", "Mist", "Mistress", "Mold", "Money", "Monkey", "Monkey Wrench", "Monster", "Monster Truck", "Moon", "Moonstone", "Morning", "Mosquito", "Mother-in-law", "Mountain", "Mouse", "Movie", "Mrs. Claus", "Mud", "Mud Bowl", "Muddy Pig", "Mule", "Multiverse", "Mummy", "Music", "Napoleon", "Napoleon Bonaparte", "Napoleon Complex", "Napoleon Dynamite", "Narhwal", "Naruto", "Nepal", "Nessie", "Netherlands", "Network", "New York", "New Zealand", "Night", "Nile", "Ninja", "North America", "North Korea", "Norway", "Number", "Nut", "Oasis", "Obama", "Obsidian", "Ocean", "Odin", "Odysseus", "Odysseus Rex", "Odyssey", "Oedipus", "Oedipus Rex", "Oink", "Olympus", "Omega", "Omelet", "One Piece", "Open", "Oreo", "Otaku", "Oven", "Owl", "Owlfish", "Palace", "Paladin", "Palm", "Pancake", "Panda", "Pandapig", "Pandora", "Pangaea", "Paparazzi", "Paper", "Paradox", "Park", "Parrot", "Party", "Passion", "Peach", "Pearl", "Pegasus", "Pencil", "Penguin", "People", "Perfume", "Peru", "Peter Griffin", "Peter Pan", "Philosopher", "Philosophy", "Phoenix", "Pidgeot", "Pie", "Pie Fight", "Pig", "Piglet", "Pigpen", "Pikachu", "Pikasushi", "Pilot", "Pina Colada", "Pine", "Pineapple", "Pinwheel", "Pirate", "Pitcher of Lemonade", "Pizza", "Plane", "Planet", "Plant", "Playboy", "Pluto", "Poem", "Pokémon", "Pollen", "Polly", "Pollywag", "Pop", "Popcorn", "Pope", "Popsicle", "Port", "Postman", "Pot", "Pot of Gold", "Pottery", "Prayer", "Prayer Water", "Pregnant", "Present", "Pride", "Pride Month", "Prince", "Princess", "Prison", "Prison Cake", "Prisoner", "Prometheus", "Psychopath", "Pteranodon", "Pterodactyl", "Quagmire", "Queen", "Rabbit", "Race", "Racecar", "Radio", "Rain", "Rainbow", "Rainbow Bear", "Rainforest", "Rally", "Rap", "Rapper", "Rapunzel", "Rat", "Reef", "Reflection", "Relativity", "Relic", "Revenge", "Riot", "Roblox", "Roll", "Ronin", "Rose", "Royal", "Ruin", "Ruins", "Rust", "Sadness", "Safari", "Sage", "Sail", "Sailor Moon", "Saiyan", "Samurai", "Sand", "Sandbox", "Sandcastle", "Sandstorm", "Santa", "Sarcophagus", "Sashimi", "Sasquatch", "Sasuke", "Science", "Screen", "Sea", "Sea Monster", "Sea Serpent", "Seaweed", "Sentence", "Serbia", "Serial Killer", "Server", "Shark", "Shark Tank", "Ship", "Shipwreck", "Shoe", "Shooting Star", "Shop", "Shortcake", "Shower", "Shrine", "Siberia", "Sick", "Silence", "Silk", "Silver", "Simba", "Singapore", "Singer", "Sister", "Skateboard", "Ski", "Skunk", "Skyscraper", "Sledgehammer", "Sleep", "Sleipnir", "Sloth", "Slytherin", "Smog", "Smokescreen", "Sneeze", "Snow", "Snowflake", "Snowman", "Soap", "Soccer", "Soda", "Solar Eclipse", "Sonic", "Sonic the Hedgehog", "Soul", "Space", "Space Shuttle", "Spaghetti", "Spain", "Spartacus", "Sphinx", "Spider", "Spider-Man", "Spit", "Sponge", "SpongeBob", "SpongeBob SquarePants", "Spoon", "Spring", "Sprinkler", "Spy", "Square", "Squirrel", "Stadium", "Staff", "Star", "Star Trek", "Star Wars", "Starbucks", "Starfruit", "Starlight", "Starscream", "Starship", "Starship Enterprise", "Statue", "Steam", "Steam Ark", "Steam T-rump", "Steampunk", "Stone", "Stone Age", "Stonehenge", "Storm", "Strawberry", "Street", "Stress", "Sun", "Sun Wukong", "Sunday", "Sunflower", "Sunny", "Sunset", "Superman", "Swamp", "Sweater", "Sweden", "Sweet", "Sword", "Symphony", "Table", "Taco", "Taco Bell", "Tae Kwon Do", "Taj Mahal", "Talent", "Tangerine", "Tao", "Tasmania", "Tasmanian Devil", "Tattoo", "Taxi", "Tea", "Teacher", "Team", "Technology", "Tectonic Plates", "Teddy Bear", "Telekinesis", "Telephone", "Telescope", "Tennis", "Tent", "Terminator", "Terra", "Tesla", "Testosterone", "Thailand", "The Bean", "The Big Bang", "The Blues", "The Force", "The Hulk", "The Last Airbender", "The Matrix", "The Moon", "The Sun", "The Undertaker", "Theft", "Thor", "Three Little Pigs", "Throne", "Thug", "Thunder", "Thunderstorm", "Tidal Wave", "Tiger", "Time", "Time Machine", "Time Travel", "Tinkerbell", "Titanic", "Tornado", "Torture", "Toys", "Trade", "Trailer", "Train", "Treasure", "Tree", "Treehouse", "Trend", "Trillionaire", "Troll", "Tropical", "Tsunami", "Tulip", "Turkey", "Turtle", "Tyrannosaurus Rex", "UFO", "Ukraine", "Uncle Sam", "Underwear", "Unicorn", "United Kingdom", "United States", "Uranus", "Valentine", "Valley", "Vampire", "Venus", "Viking", "Virus", "Volcano", "Voodoo", "Waffle", "Wall", "Wallpaper", "Walrus", "War", "Warcraft", "Warrior", "Water", "Watermelon", "Weather", "Wedding", "Whale", "Wheel", "White House", "Widow", "Wife", "Wine", "Witch", "Wizard", "Wolf", "Wood", "Woodpecker", "World", "World Cup", "Worm", "Wreck", "Wrestler", "X-ray", "Xbox", "Xenomorph", "Yacht", "Yakuza", "Yakushima", "Yarn", "Yin and Yang", "Yoda", "Yogi Bear", "Yoshi", "Youtube", "Yule Log", "Zebra", "Zeus", "Zombie"
+  ];
 
-  // Initialize selected difficulty
-  let selectedDifficulty = "";
-
-  // Function to handle button clicks
-  function handleButtonClick(difficulty) {
-    // Reset all buttons to default style
-    document.querySelectorAll('.btn').forEach(button => {
-      button.classList.remove('btn-success');
-    });
-
-    // Set selected difficulty
-    selectedDifficulty = difficulty;
-
-    // Color the selected button
-    document.getElementById(difficulty + 'Button').classList.add('btn-success');
-
-    // Optionally, you can perform additional actions based on the selected difficulty
-    // For example:
-    // console.log("Selected Difficulty:", selectedDifficulty);
+  // Function to generate a random word from the selected difficulty
+  function generateRandomWord(difficulty) {
+    let word;
+    switch (difficulty) {
+      case "easy":
+        word = easyWords[Math.floor(Math.random() * easyWords.length)];
+        break;
+      case "medium":
+        word = mediumWords[Math.floor(Math.random() * mediumWords.length)];
+        break;
+      case "hard":
+        word = hardWords[Math.floor(Math.random() * hardWords.length)];
+        break;
+      case "insane":
+        word = insaneWords[Math.floor(Math.random() * insaneWords.length)];
+        break;
+      default:
+        word = words[Math.floor(Math.random() * words.length)]; // Default to selecting from all words
+        break;
+    }
+    return word;
   }
 
-  // Function to handle Generate button click
-  document.getElementById('generateButton').addEventListener('click', () => {
-    if (selectedDifficulty) {
-      let randomWord = "";
-      switch (selectedDifficulty) {
-        case 'easy':
-          randomWord = easyWords[Math.floor(Math.random() * easyWords.length)];
-          break;
-        case 'medium':
-          randomWord = mediumWords[Math.floor(Math.random() * mediumWords.length)];
-          break;
-        case 'hard':
-          randomWord = hardWords[Math.floor(Math.random() * hardWords.length)];
-          break;
-        case 'insane':
-          randomWord = insaneWords[Math.floor(Math.random() * insaneWords.length)];
-          break;
-        default:
-          break;
-      }
-      document.getElementById('wordDisplay').textContent = randomWord;
-    } else {
-      alert("Please select a difficulty");
-    }
+  // Event listeners for difficulty buttons
+  document.getElementById("easyButton").addEventListener("click", function() {
+    displayRandomWord("easy");
   });
 
-  // Add event listeners to buttons
-  document.getElementById('easyButton').addEventListener('click', () => handleButtonClick('easy'));
-  document.getElementById('mediumButton').addEventListener('click', () => handleButtonClick('medium'));
-  document.getElementById('hardButton').addEventListener('click', () => handleButtonClick('hard'));
-  document.getElementById('insaneButton').addEventListener('click', () => handleButtonClick('insane'));
+  document.getElementById("mediumButton").addEventListener("click", function() {
+    displayRandomWord("medium");
+  });
+
+  document.getElementById("hardButton").addEventListener("click", function() {
+    displayRandomWord("hard");
+  });
+
+  document.getElementById("insaneButton").addEventListener("click", function() {
+    displayRandomWord("insane");
+  });
+
+  // Function to display a random word based on the selected difficulty
+  function displayRandomWord(difficulty) {
+    const wordDisplay = document.getElementById("wordDisplay");
+    const word = generateRandomWord(difficulty);
+    wordDisplay.textContent = word;
+  }
+
+  // Event listener for the generate button
+  document.getElementById("generateButton").addEventListener("click", function() {
+    const selectedDifficulty = document.querySelector('input[name="difficulty"]:checked');
+    if (selectedDifficulty) {
+      const difficulty = selectedDifficulty.value;
+      displayRandomWord(difficulty);
+    } else {
+      const wordDisplay = document.getElementById("wordDisplay");
+      wordDisplay.textContent = "Please select a difficulty.";
+    }
+  });
 </script>
 
 </body>
